@@ -16,7 +16,8 @@ const config = {
   url: 'https://deflaimun.github.io',
   baseUrl: '/',
   organizationName: 'deflaimun', 
-  projectName: 'my-docusaurus', 
+  projectName: 'my-docusaurus',
+  deploymentBranch: 'gh-pages', 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   i18n: {
