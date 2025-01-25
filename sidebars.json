@@ -1,0 +1,23 @@
+{
+    "tutorialSidebar": [
+      {
+        "type": "doc",
+        "id": "intro"
+      },
+      {
+        "type": "doc",
+        "id": "new-page-md"
+      },
+      {
+        "type": "category",
+        "label": "Tutorial",
+        "items": [
+          {
+            "type": "doc",
+            "id": "tutorial-basics/create-a-document"
+          }
+        ]
+      }
+    ]
+  }
+  
