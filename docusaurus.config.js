@@ -14,7 +14,7 @@ const config = {
   tagline: 'Personal portfolio',
   favicon: 'img/favicon.ico',
   url: 'https://deflaimun.github.io',
-  baseUrl: '/my-docusaurus/',
+  baseUrl: '/',
   organizationName: 'deflaimun', 
   projectName: 'my-docusaurus',
   deploymentBranch: 'gh-pages', 
