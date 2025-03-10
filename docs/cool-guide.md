@@ -116,7 +116,7 @@ FastAPI automatically generates interactive API documentation. You can access it
 
 ### Example Requests
 
-Here are some examples of how to interact with your API using curl:
+Here are some examples of how to interact with your API using curl: asda
 
 #### Create an Item (POST)
 
