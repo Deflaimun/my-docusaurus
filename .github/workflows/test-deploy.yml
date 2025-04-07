@@ -1,5 +1,8 @@
 name: Test deployment
 
+permissions:
+  issues: write
+
 on:
   pull_request:
     branches:
