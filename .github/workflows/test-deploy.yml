@@ -29,7 +29,6 @@ jobs:
     name: Comment on failure
     needs: test-deploy
     runs-on: ubuntu-latest
-    if: always()
     steps:
       - name: Add comment to PR if deployment failed
         if: ${{ needs.test-deploy.result == 'failure' }}
