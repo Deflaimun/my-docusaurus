@@ -1,7 +1,7 @@
 name: Test deployment
 
 permissions:
-  issues: write
+  pull-requests: write  # Change this from 'issues' to 'pull-requests'
 
 on:
   pull_request:
@@ -35,10 +35,10 @@ jobs:
         if: ${{ needs.test-deploy.result == 'failure' }}
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}  # Use the default GITHUB_TOKEN
           script: |
             github.rest.issues.createComment({
-              issue_number: context.payload.pull_request.number,
+              issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `🚨 The workflow [Test deployment](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}) has failed. Please check the logs for details.`
