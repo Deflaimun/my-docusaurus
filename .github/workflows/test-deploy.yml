@@ -17,8 +17,25 @@ jobs:
         with:
           node-version: 18
           cache: npm
-
       - name: Install dependencies
         run: npm ci
       - name: Test build website
         run: npm run build
+
+  comment:
+    name: Comment on failure
+    needs: test-deploy
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Add comment to PR if deployment failed
+        if: ${{ needs.test-deploy.result == 'failure' }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚨 The workflow [Test deployment](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}) has failed. Please check the logs for details.`
+            });
