@@ -1,21 +1,52 @@
 name: Test deployment
 
 permissions:
-  pull-requests: write  
+  pull-requests: write
 
 on:
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   test-deploy:
-    name: Test deployment
+    name: Test & Comment
     runs-on: ubuntu-latest
     steps:
+      # 1. Checkout
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      # 2. Announce “creating preview…”
+      - name: Announce preview start
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const body = `<!-- preview-comment-marker -->⏳ **Creating preview…**`;
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo:  context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const existing = comments.find(c => c.body.includes('<!-- preview-comment-marker -->'));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner:       context.repo.owner,
+                repo:        context.repo.repo,
+                comment_id:  existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner:        context.repo.owner,
+                repo:         context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
+
+      # 3. Install & build
       - uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -23,23 +54,62 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Test build website
+        id: build
         run: npm run build
 
-  comment:
-    name: Comment on failure
-    needs: test-deploy
-    runs-on: ubuntu-latest
-    if: always()
-    steps:
-      - name: Add comment to PR if deployment failed
-        if: ${{ needs.test-deploy.result == 'failure' }}
+      # 4. Gather modified docs pages
+      - name: List modified docs/*.md
+        id: modified
+        run: |
+          BASE=${{ github.event.pull_request.base.sha }}
+          HEAD=${{ github.sha }}
+          git diff --name-only $BASE $HEAD | grep -E '^docs/.*\.md$' || true \
+            > modified.txt
+          echo "FILES<<EOF" >> $GITHUB_OUTPUT
+          cat modified.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      # 5. Update the same comment with final status + links
+      - name: Publish status & links
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}  # Use the default GITHUB_TOKEN
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.rest.issues.createComment({
+            const outcome = '${{ steps.build.outcome }}';
+            let body = `<!-- preview-comment-marker -->\n`;
+            if (outcome === 'failure') {
+              body += `❌ **Build failed** — [View logs](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID})\n`;
+              // future: insert link to last-successful-preview here
+            } else {
+              body += `✅ **Build succeeded** — Preview: https://${context.payload.pull_request.head.ref}.documentation-21k.pages.dev\n`;
+            }
+            const files = `\n${{ steps.modified.outputs.FILES }}`.trim().split('\n').filter(Boolean);
+            if (files.length) {
+              body += `\n**Modified pages:**\n`;
+              for (const p of files) {
+                const slug = p.replace(/^docs\//, '').replace(/\.md$/, '');
+                const url  = `https://${context.payload.pull_request.head.ref}.documentation-21k.pages.dev/${slug}`;
+                body += `- [${p}](${url})\n`;
+              }
+            }
+            const { data: comments } = await github.rest.issues.listComments({
+              owner:        context.repo.owner,
+              repo:         context.repo.repo,
               issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `🚨 The workflow [Test deployment](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}) has failed. Please check the logs for details.`
             });
+            const existing = comments.find(c => c.body.includes('<!-- preview-comment-marker -->'));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner:       context.repo.owner,
+                repo:        context.repo.repo,
+                comment_id:  existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner:        context.repo.owner,
+                repo:         context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
