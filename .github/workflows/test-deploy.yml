@@ -11,19 +11,18 @@ jobs:
   test-deploy:
     name: Test & Comment
     runs-on: ubuntu-latest
+
     steps:
-      # 1. Checkout
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2. Announce “creating preview…”
       - name: Announce preview start
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const body = `<!-- preview-comment-marker -->⏳ **Creating preview…**`;
+            const body = `<!-- preview-comment-marker -->\n⏳ **Creating preview…**`;
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo:  context.repo.repo,
@@ -32,9 +31,9 @@ jobs:
             const existing = comments.find(c => c.body.includes('<!-- preview-comment-marker -->'));
             if (existing) {
               await github.rest.issues.updateComment({
-                owner:       context.repo.owner,
-                repo:        context.repo.repo,
-                comment_id:  existing.id,
+                owner:      context.repo.owner,
+                repo:       context.repo.repo,
+                comment_id: existing.id,
                 body,
               });
             } else {
@@ -46,32 +45,30 @@ jobs:
               });
             }
 
-      # 3. Install & build
       - uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
+
       - name: Install dependencies
         run: npm ci
+
       - name: Test build website
         id: build
         continue-on-error: true
         run: npm run build
 
-      # 4. Gather modified docs pages
       - name: List modified docs/*.md
-        if: always()
         id: modified
+        if: always()
         run: |
           BASE=${{ github.event.pull_request.base.sha }}
           HEAD=${{ github.sha }}
-          git diff --name-only $BASE $HEAD | grep -E '^docs/.*\.md$' || true \
-            > modified.txt
+          git diff --name-only $BASE $HEAD | grep -E '^docs/.*\.md$' > modified.txt || true
           echo "FILES<<EOF" >> $GITHUB_OUTPUT
           cat modified.txt >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-      # 5. Update the same comment with final status + links
       - name: Publish status & links
         if: always()
         uses: actions/github-script@v6
@@ -82,16 +79,15 @@ jobs:
             let body = `<!-- preview-comment-marker -->\n`;
             if (outcome === 'failure') {
               body += `❌ **Build failed** — [View logs](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID})\n`;
-              // future: insert link to last-successful-preview here
             } else {
-              body += `✅ **Build succeeded** — Preview: https://${context.payload.pull_request.head.ref}.documentation-21k.pages.dev\n`;
+              body += `✅ **Build succeeded** — Preview: https://${context.payload.pull_request.head.ref}.my-docusaurus-7jv.pages.dev\n`;
             }
             const files = `\n${{ steps.modified.outputs.FILES }}`.trim().split('\n').filter(Boolean);
             if (files.length) {
               body += `\n**Modified pages:**\n`;
               for (const p of files) {
                 const slug = p.replace(/^docs\//, '').replace(/\.md$/, '');
-                const url  = `https://${context.payload.pull_request.head.ref}.documentation-21k.pages.dev/${slug}`;
+                const url  = `https://${context.payload.pull_request.head.ref}.my-docusaurus-7jv.pages.dev/${slug}`;
                 body += `- [${p}](${url})\n`;
               }
             }
@@ -103,9 +99,9 @@ jobs:
             const existing = comments.find(c => c.body.includes('<!-- preview-comment-marker -->'));
             if (existing) {
               await github.rest.issues.updateComment({
-                owner:       context.repo.owner,
-                repo:        context.repo.repo,
-                comment_id:  existing.id,
+                owner:      context.repo.owner,
+                repo:       context.repo.repo,
+                comment_id: existing.id,
                 body,
               });
             } else {
