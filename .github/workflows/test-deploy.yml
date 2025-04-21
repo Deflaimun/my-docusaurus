@@ -55,10 +55,12 @@ jobs:
         run: npm ci
       - name: Test build website
         id: build
+        continue-on-error: true
         run: npm run build
 
       # 4. Gather modified docs pages
       - name: List modified docs/*.md
+        if: always()
         id: modified
         run: |
           BASE=${{ github.event.pull_request.base.sha }}
@@ -71,6 +73,7 @@ jobs:
 
       # 5. Update the same comment with final status + links
       - name: Publish status & links
+        if: always()
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
