@@ -275,9 +275,6 @@ function Connect() {
           <Link className="button button--secondary button--lg" href="https://github.com/Deflaimun">
             GitHub
           </Link>
-          <Link className="button button--outline button--secondary button--lg" to="/blog">
-            Blog
-          </Link>
         </div>
       </div>
     </section>

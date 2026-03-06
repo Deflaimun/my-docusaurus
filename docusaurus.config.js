@@ -32,18 +32,7 @@ const config = {
           editUrl:
             'https://github.com/Deflaimun/my-docusaurus/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          editUrl:
-            'https://github.com/Deflaimun/my-docusaurus/tree/main/',
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'ignore',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -77,7 +66,6 @@ const config = {
             label: 'Writing Samples',
             position: 'left',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://www.linkedin.com/in/paulohtb/',
             label: 'LinkedIn',
@@ -99,7 +87,6 @@ const config = {
               {label: 'About', to: '/docs'},
               {label: 'Case Studies', to: '/docs/case-studies/shadowing'},
               {label: 'Writing Samples', to: '/docs/writing-samples/shadowing/'},
-              {label: 'Blog', to: '/blog'},
             ],
           },
           {
