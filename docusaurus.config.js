@@ -5,7 +5,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Paulo Borges',
   tagline: 'Documentation Engineer & Software Developer',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
   url: 'https://deflaimun.github.io',
   baseUrl: '/my-docusaurus/',
   organizationName: 'deflaimun',
@@ -58,7 +58,7 @@ const config = {
       navbar: {
         title: 'Paulo Borges',
         logo: {
-          alt: 'Paulo Borges — connected nodes logo',
+          alt: 'Paulo Borges connected nodes logo',
           src: 'img/logo.svg',
         },
         items: [

@@ -4,7 +4,7 @@ title: Shadowing — Disaster Recovery
 ---
 
 :::info Writing Sample
-This page was originally published to [Redpanda's documentation](https://docs.redpanda.com/current/manage/disaster-recovery/shadowing/overview/) and is reproduced here as a portfolio writing sample.
+This documentation was originally published to [Redpanda's documentation](https://docs.redpanda.com/current/manage/disaster-recovery/shadowing/) and is reproduced here as a portfolio writing sample.
 :::
 
 # Shadowing — Disaster Recovery
@@ -21,11 +21,3 @@ This documentation set covers the full lifecycle of Shadowing — from initial s
 - **[Failover](./failover)** — Planned failover procedures, failover states, and post-failover behavior
 - **[Failover Runbook](./failover-runbook)** — Emergency step-by-step guide for active disaster scenarios
 
-## About this documentation
-
-These pages demonstrate documentation written for a technically complex enterprise feature. Key authoring challenges included:
-
-- **Dual audience**: Content had to serve both cloud-managed (BYOC/Dedicated) and self-managed deployment models, with conditional content for each
-- **Cross-functional source material**: Working directly from engineering design reviews, PRDs, and RFCs to produce user-facing guides
-- **Reuse architecture**: Designing partials and tagged regions for single-sourcing across multiple Antora modules
-- **Emergency procedures**: Writing high-stakes runbook content with clear decision trees and verified command examples

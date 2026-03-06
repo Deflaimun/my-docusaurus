@@ -10,7 +10,7 @@ const TRACKS = [
     title: 'Software Engineering',
     items: [
       'Tech lead for 15-person team (real-time Kafka platform)',
-      'Event-driven microservices — WhatsApp, iFood, in-store channels',
+      'Event-driven microservices: WhatsApp, iFood, in-store channels',
       'AI-assisted full-stack development (Python, PostgreSQL, Redpanda)',
     ],
   },
@@ -27,7 +27,7 @@ const TRACKS = [
     icon: '✍️',
     title: 'Technical Writing',
     items: [
-      'End-to-end Disaster Recovery docs — 95% solo-authored',
+      'End-to-end Disaster Recovery docs (95% solo-authored)',
       'GBAC security documentation from zero',
       'Cross-functional coordination across engineering, PM, and CS',
     ],
@@ -44,26 +44,26 @@ const IMPACT = [
 
 const WORK = [
   {
-    title: 'Redpanda Shadowing — Disaster Recovery',
+    title: 'Redpanda Shadowing: Disaster Recovery',
     desc: '95% solo-authored end-to-end DR guide. Participated in engineering design reviews, co-wrote PRDs and RFCs, then wrote the full user-facing technical guide across cloud and self-managed deployments.',
     tags: [{ label: 'Docs Writing', cls: 'chipWriting' }],
     link: '/docs/case-studies/shadowing',
   },
   {
     title: 'Docs Platform Automation',
-    desc: 'Built Python + tree-sitter tooling to parse a C++ codebase and auto-generate reference docs for 2,000+ configuration properties — eliminating ~80% of manual update overhead.',
+    desc: 'Built Python + tree-sitter tooling to parse a C++ codebase and auto-generate reference docs for 2,000+ configuration properties, eliminating ~80% of manual update overhead.',
     tags: [{ label: 'Docs Engineering', cls: 'chipDocs' }],
     link: null,
   },
   {
-    title: 'Kurrent — Astro/Starlight Migration',
+    title: 'Kurrent: Astro/Starlight Migration',
     desc: 'Diagnosed critical VuePress memory constraints; architected migration to Astro/Starlight. Achieved 70% build speedup and fixed 100+ broken links. Migration was in progress at time of company-wide layoff.',
     tags: [{ label: 'Docs Engineering', cls: 'chipDocs' }],
     link: null,
   },
   {
     title: 'Order Processing Platform',
-    desc: 'Led a 15-person team building a real-time event-driven order ingestion system at one of Brazil\'s largest fuel retailers — aggregating WhatsApp, iFood, in-store, and web channels via Confluent Kafka.',
+    desc: 'Led a 15-person team building a real-time event-driven order ingestion system at one of Brazil\'s largest fuel retailers, aggregating WhatsApp, iFood, in-store, and web channels via Confluent Kafka.',
     tags: [{ label: 'Software Engineering', cls: 'chipSoftware' }],
     link: null,
   },
@@ -75,7 +75,7 @@ const WORK = [
   },
   {
     title: 'GBAC Security Documentation',
-    desc: 'Authored Group-Based Access Control documentation from scratch — covering concepts, configuration procedures for cloud and self-managed clusters, and reusable UI procedure partials.',
+    desc: 'Authored Group-Based Access Control documentation from scratch, covering concepts, configuration procedures for cloud and self-managed clusters, and reusable UI procedure partials.',
     tags: [{ label: 'Docs Writing', cls: 'chipWriting' }],
     link: '/docs/case-studies/gbac',
   },
@@ -83,14 +83,14 @@ const WORK = [
 
 const TEASERS = [
   {
-    label: 'Writing Sample — Disaster Recovery',
+    label: 'Writing Sample: Disaster Recovery',
     title: 'Shadowing Overview',
     excerpt:
       'Shadowing is a disaster recovery feature that continuously replicates a source cluster\'s data and state to a shadow cluster, so that during an unplanned outage, you can quickly restore your operations on that shadow cluster.',
     link: '/docs/writing-samples/shadowing/overview',
   },
   {
-    label: 'Writing Sample — Security',
+    label: 'Writing Sample: Security',
     title: 'Group-Based Access Control',
     excerpt:
       'Group-Based Access Control (GBAC) lets you assign roles to groups of users instead of individual accounts. When you assign a role to a group, all members of that group inherit the permissions defined by that role.',
@@ -119,7 +119,7 @@ function Hero() {
       <div className={styles.container}>
         <h1 className={styles.heroName}>Paulo Borges</h1>
         <p className={styles.heroTagline}>
-          I turn complex systems into clear, usable documentation —
+          I turn complex systems into clear, usable documentation,
           <br />
           and I can build the systems too.
         </p>
@@ -287,7 +287,7 @@ function Connect() {
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout title={siteConfig.title} description="Documentation Engineer and Software Developer — Paulo Borges">
+    <Layout title={siteConfig.title} description="Documentation Engineer and Software Developer, Paulo Borges">
       <Hero />
       <main>
         <Tracks />

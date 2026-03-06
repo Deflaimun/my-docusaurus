@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+sidebar_label: "Redpanda Disaster Recovery"
 title: "Case Study: Redpanda Shadowing (Disaster Recovery)"
 description: How I authored end-to-end disaster recovery documentation for Redpanda's Shadowing feature.
 ---
@@ -26,7 +27,7 @@ I authored **95% of this documentation set independently**, including:
 - Participating in **engineering design reviews** and **product requirement discussions** before the feature was fully built
 - Co-reviewing **PRDs and RFCs** to ensure documentation requirements were captured early
 - Writing the complete user-facing documentation: overview, setup, monitoring, planned failover, and emergency runbook
-- Designing the **information architecture** — deciding how to structure five interconnected pages across cloud and self-managed deployment models
+- Designing the **information architecture**, deciding how to structure five interconnected pages across cloud and self-managed deployment models
 - Coordinating with PMs, SMEs, and the engineering team to validate technical accuracy
 - Designing the **Antora single-source architecture** using tagged regions and conditional blocks to serve cloud and self-managed audiences from shared source files
 
@@ -61,8 +62,8 @@ The documentation shipped with Redpanda v25.3 and covers:
 
 ## Read the Full Documentation
 
-- [Shadowing Overview](../writing-samples/shadowing/overview) — Architecture, replication model, and shadow link tasks
-- [Configure Shadowing](../writing-samples/shadowing/setup) — Prerequisites, shadow link creation, filtering, networking
-- [Monitor Shadowing](../writing-samples/shadowing/monitor) — Status commands and metrics reference
-- [Failover](../writing-samples/shadowing/failover) — Planned failover procedures and states
-- [Failover Runbook](../writing-samples/shadowing/failover-runbook) — Emergency step-by-step disaster procedures
+- [Shadowing Overview](../writing-samples/shadowing/overview): Architecture, replication model, and shadow link tasks
+- [Configure Shadowing](../writing-samples/shadowing/setup): Prerequisites, shadow link creation, filtering, networking
+- [Monitor Shadowing](../writing-samples/shadowing/monitor): Status commands and metrics reference
+- [Failover](../writing-samples/shadowing/failover): Planned failover procedures and states
+- [Failover Runbook](../writing-samples/shadowing/failover-runbook): Emergency step-by-step disaster procedures

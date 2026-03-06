@@ -1,12 +1,13 @@
 ---
 sidebar_position: 2
+sidebar_label: "Group-Based Access Control (GBAC)"
 title: "Case Study: Group-Based Access Control (GBAC)"
 description: How I authored documentation for Redpanda's GBAC security feature from scratch.
 ---
 
 # Case Study: Group-Based Access Control (GBAC)
 
-**Project**: Security Documentation — GBAC
+**Project**: GBAC Security Documentation
 **Company**: Redpanda
 **Year**: 2025–2026
 **Role**: Technical Writer / Documentation Engineer
@@ -15,17 +16,17 @@ description: How I authored documentation for Redpanda's GBAC security feature f
 
 ## What is GBAC?
 
-Group-Based Access Control (GBAC) is a Redpanda security feature that extends OIDC authentication to allow permissions to be assigned at the group level rather than per-user. When a user authenticates via OIDC, Redpanda reads their group memberships from the JWT token and grants permissions inherited from those groups — eliminating the need to manage individual user ACLs as teams grow.
+Group-Based Access Control (GBAC) is a Redpanda security feature that extends OIDC authentication to allow permissions to be assigned at the group level rather than per-user. When a user authenticates via OIDC, Redpanda reads their group memberships from the JWT token and grants permissions inherited from those groups, eliminating the need to manage individual user ACLs as teams grow.
 
 The feature works across all Redpanda APIs (Kafka, Admin, Schema Registry, HTTP Proxy) and integrates with major identity providers including Auth0, Okta, and Microsoft Entra ID.
 
 ## My Role
 
-I authored the GBAC documentation **from scratch** — no prior documentation existed for this feature. My responsibilities included:
+I authored the GBAC documentation **from scratch**; no prior documentation existed for this feature. My responsibilities included:
 
 - Working with the security engineering team to understand the authorization evaluation model and token claim extraction behavior
 - Authoring the full documentation set: conceptual overview, configuration procedures, and reference content
-- Designing the **learning-objective-based structure** — each page opens with a checkbox list of what the reader will accomplish, a pattern borrowed from course design that improves scanability
+- Designing the **learning-objective-based structure**: each page opens with a checkbox list of what the reader will accomplish, a pattern borrowed from course design that improves scanability
 - Creating reusable partials for the UI procedures (Redpanda Console), which are shared across multiple docs pages
 - Coordinating with the cloud team to ensure cloud-specific behaviors (contact support for cluster property changes) were clearly documented
 - Simultaneously **rewriting existing ACL and RBAC reference pages** to incorporate GBAC context and ensure consistency across the security documentation section
@@ -42,7 +43,7 @@ I authored the GBAC documentation **from scratch** — no prior documentation ex
 
 ## Approach & Decisions
 
-**Learning objectives up front**: Each page starts with a checklist of what the reader will be able to do after reading. This is a documentation pattern borrowed from instructional design — it sets expectations, helps readers determine if they're on the right page, and serves as a scannable summary.
+**Learning objectives up front**: Each page starts with a checklist of what the reader will be able to do after reading. This is a documentation pattern borrowed from instructional design: it sets expectations, helps readers determine if they're on the right page, and serves as a scannable summary.
 
 **Concept before procedure**: The overview page explains the authorization model (how GBAC works, what gets evaluated, in what order) before jumping to configuration steps. Enterprise security engineers need to understand the security model before they configure it.
 
@@ -63,5 +64,5 @@ The documentation covers:
 
 ## Read the Full Documentation
 
-- [GBAC Overview](../writing-samples/gbac/overview) — Concept, authorization model, limitations, and token claim extraction
-- [Configure GBAC](../writing-samples/gbac/configure) — Assign groups to roles, create group ACLs, view role assignments
+- [GBAC Overview](../writing-samples/gbac/overview): Concept, authorization model, limitations, and token claim extraction
+- [Configure GBAC](../writing-samples/gbac/configure): Assign groups to roles, create group ACLs, view role assignments

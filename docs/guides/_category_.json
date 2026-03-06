@@ -1,8 +1,0 @@
-{
-  "label": "Technical Guides",
-  "position": 3,
-  "link": {
-    "type": "generated-index",
-    "description": "Developer guides on practical software engineering topics."
-  }
-}

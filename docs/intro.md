@@ -1,24 +1,24 @@
 ---
 sidebar_position: 0
 title: About
-slug: /docs
+slug: /
 ---
 
 # Paulo Borges
 
 **Documentation Engineer · Software Developer · Rio de Janeiro, Brazil**
 
-I work at the intersection of software engineering and technical communication — building documentation systems, writing complex technical content, and engineering the tooling that makes both possible at scale.
+I work at the intersection of software engineering and technical communication, building documentation systems, writing complex technical content, and engineering the tooling that makes both possible at scale.
 
 Over 8+ years, I've owned the full lifecycle of documentation products: from migrating platforms and automating reference doc generation, to writing enterprise security guides from scratch and leading 15-person engineering teams.
 
 ## What I do
 
-**Documentation Engineering** — Platform migrations, CI/CD for docs, automation tooling, information architecture, release engineering.
+**Documentation Engineering**: Platform migrations, CI/CD for docs, automation tooling, information architecture, release engineering.
 
-**Technical Writing** — Enterprise feature documentation, conceptual guides, operational runbooks, API references.
+**Technical Writing**: Enterprise feature documentation, conceptual guides, operational runbooks, API references.
 
-**Software Engineering** — Event-driven systems, Python backend services, full-stack development.
+**Software Engineering**: Event-driven systems, Python backend services, full-stack development.
 
 ## Where I've worked
 
@@ -37,15 +37,14 @@ Over 8+ years, I've owned the full lifecycle of documentation products: from mig
 - Built Python + tree-sitter tooling to auto-generate docs for 2,000+ config properties from C++ source
 - Led 15-person engineering team building a real-time Kafka-based order processing platform
 - Architected Astro/Starlight migration at Kurrent, achieving 70% faster build times
-- Pioneered Claude Code MCP integration for doc automation at Redpanda — writers now trigger automations via natural language
+- Pioneered Claude Code MCP integration for doc automation at Redpanda; writers now trigger automations via natural language
 
 ## In this portfolio
 
-- **[Case Studies](./case-studies/shadowing)** — Deep dives into documentation projects with context, approach, and outcomes
-- **[Writing Samples](./writing-samples/shadowing/)** — Full documentation reproduced from Redpanda, converted to MDX
-- **[Technical Guides](./guides/fastapi-crud)** — Developer guides on software engineering topics
+- **[Case Studies](./case-studies/shadowing)**: Deep dives into documentation projects with context, approach, and outcomes
+- **[Writing Samples](./writing-samples/shadowing/)**: Full documentation reproduced from Redpanda, converted to MDX
 
 ## Links
 
-- [GitHub — Deflaimun](https://github.com/Deflaimun)
+- [GitHub](https://github.com/Deflaimun)
 - [LinkedIn — paulohtb](https://www.linkedin.com/in/paulohtb/)
