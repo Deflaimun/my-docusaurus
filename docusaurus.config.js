@@ -1,28 +1,25 @@
 // @ts-check
-// `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
-// See: https://docusaurus.io/docs/api/docusaurus-config
-
 import {themes as prismThemes} from 'prism-react-renderer';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Paulo Borges',
-  tagline: 'Personal portfolio',
+  tagline: 'Documentation Engineer & Software Developer',
   favicon: 'img/favicon.ico',
   url: 'https://deflaimun.github.io',
-  baseUrl: '/',
-  organizationName: 'deflaimun', 
+  baseUrl: '/my-docusaurus/',
+  organizationName: 'deflaimun',
   projectName: 'my-docusaurus',
-  deploymentBranch: 'gh-pages', 
+  deploymentBranch: 'gh-pages',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   i18n: {
     defaultLocale: 'en',
-    locales: ['en','pt-br'],
+    locales: ['en'],
   },
   presets: [
     [
@@ -30,7 +27,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/',
+          routeBasePath: '/docs',
           sidebarPath: './sidebars.js',
           editUrl:
             'https://github.com/Deflaimun/my-docusaurus/tree/main/',
@@ -61,20 +58,29 @@ const config = {
       navbar: {
         title: 'Paulo Borges',
         logo: {
-          alt: 'Paulo Borges',
-          src: 'img/pb-light.svg',
+          alt: 'Paulo Borges — connected nodes logo',
+          src: 'img/logo.svg',
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            to: '/docs',
+            label: 'About',
             position: 'left',
-            label: 'Docs',
+          },
+          {
+            to: '/docs/case-studies/shadowing',
+            label: 'Case Studies',
+            position: 'left',
+          },
+          {
+            to: '/docs/writing-samples/shadowing/',
+            label: 'Writing Samples',
+            position: 'left',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://www.linkedin.com/in/paulohtb/',
-            label: 'Linkedin',
+            label: 'LinkedIn',
             position: 'right',
           },
           {
@@ -85,8 +91,32 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} Paulo Borges, Inc. Built with Docusaurus.`,
+        style: 'light',
+        links: [
+          {
+            title: 'Portfolio',
+            items: [
+              {label: 'About', to: '/docs'},
+              {label: 'Case Studies', to: '/docs/case-studies/shadowing'},
+              {label: 'Writing Samples', to: '/docs/writing-samples/shadowing/'},
+              {label: 'Blog', to: '/blog'},
+            ],
+          },
+          {
+            title: 'Connect',
+            items: [
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/paulohtb/',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/Deflaimun',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} Paulo Borges. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

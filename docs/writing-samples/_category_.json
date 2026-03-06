@@ -1,0 +1,8 @@
+{
+  "label": "Writing Samples",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Technical documentation originally authored for Redpanda, reproduced here as portfolio samples."
+  }
+}

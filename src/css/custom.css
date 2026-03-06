@@ -4,27 +4,58 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Sky blue palette — light-first, both modes supported */
 :root {
-  --ifm-color-primary: #6876df;
-  --ifm-color-primary-dark: #4d5ed9;
-  --ifm-color-primary-darker: #4051d6;
-  --ifm-color-primary-darkest: #283abd;
-  --ifm-color-primary-light: #838ee5;
-  --ifm-color-primary-lighter: #909be8;
-  --ifm-color-primary-lightest: #b9bff0;
+  --ifm-color-primary: #0284c7;
+  --ifm-color-primary-dark: #0369a1;
+  --ifm-color-primary-darker: #075985;
+  --ifm-color-primary-darkest: #0c4a6e;
+  --ifm-color-primary-light: #0ea5e9;
+  --ifm-color-primary-lighter: #38bdf8;
+  --ifm-color-primary-lightest: #7dd3fc;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f8fafc;
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --docusaurus-highlighted-code-line-bg: rgba(2, 132, 199, 0.08);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #8997fa;
-  --ifm-color-primary-dark: #6476f8;
-  --ifm-color-primary-darker: #5166f8;
-  --ifm-color-primary-darkest: #1a35f5;
-  --ifm-color-primary-light: #aeb8fc;
-  --ifm-color-primary-lighter: #c1c8fc;
-  --ifm-color-primary-lightest: #f8f9ff;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #38bdf8;
+  --ifm-color-primary-dark: #0ea5e9;
+  --ifm-color-primary-darker: #0284c7;
+  --ifm-color-primary-darkest: #0369a1;
+  --ifm-color-primary-light: #7dd3fc;
+  --ifm-color-primary-lighter: #bae6fd;
+  --ifm-color-primary-lightest: #e0f2fe;
+  --ifm-background-color: #0f172a;
+  --ifm-background-surface-color: #1e293b;
+  --docusaurus-highlighted-code-line-bg: rgba(56, 189, 248, 0.1);
+}
+
+/* Homepage hero gradient */
+.hero--primary {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
+  color: #0f172a;
+}
+
+[data-theme='dark'] .hero--primary {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  color: #f1f5f9;
+}
+
+.hero__title {
+  color: #0f172a;
+}
+
+[data-theme='dark'] .hero__title {
+  color: #f1f5f9;
+}
+
+.hero__subtitle {
+  color: #475569;
+}
+
+[data-theme='dark'] .hero__subtitle {
+  color: #94a3b8;
 }

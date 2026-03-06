@@ -1,0 +1,8 @@
+{
+  "label": "Case Studies",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Deep dives into documentation projects — context, approach, challenges, and outcomes."
+  }
+}

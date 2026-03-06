@@ -1,0 +1,410 @@
+/* ---- Hero ---- */
+.hero {
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 60%, #f8fafc 100%);
+}
+
+[data-theme='dark'] .hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f172a 100%);
+}
+
+.heroName {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+[data-theme='dark'] .heroName {
+  color: #f1f5f9;
+}
+
+.heroTagline {
+  font-size: 1.25rem;
+  color: #475569;
+  max-width: 640px;
+  margin: 0 auto 0.75rem;
+  line-height: 1.6;
+}
+
+[data-theme='dark'] .heroTagline {
+  color: #94a3b8;
+}
+
+.heroSub {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+[data-theme='dark'] .heroSub {
+  color: #64748b;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- Section shared ---- */
+.section {
+  padding: 4rem 2rem;
+}
+
+.sectionAlt {
+  background: #f8fafc;
+}
+
+[data-theme='dark'] .sectionAlt {
+  background: #1e293b;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+}
+
+[data-theme='dark'] .sectionTitle {
+  color: #f1f5f9;
+}
+
+.sectionSub {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---- Three Tracks ---- */
+.tracksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .tracksGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trackCard {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.75rem;
+  background: white;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+[data-theme='dark'] .trackCard {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.trackCard:hover {
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.1);
+  border-color: #0284c7;
+}
+
+.trackIcon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.trackTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #0f172a;
+}
+
+[data-theme='dark'] .trackTitle {
+  color: #f1f5f9;
+}
+
+.trackList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trackList li {
+  font-size: 0.9rem;
+  color: #475569;
+  padding: 0.25rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+[data-theme='dark'] .trackList li {
+  color: #94a3b8;
+}
+
+.trackList li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #0284c7;
+}
+
+/* ---- Impact Numbers ---- */
+.impactGrid {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.impactItem {
+  text-align: center;
+}
+
+.impactNumber {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0284c7;
+  line-height: 1;
+  display: block;
+}
+
+.impactLabel {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+  max-width: 120px;
+  line-height: 1.4;
+}
+
+/* ---- Work Cards ---- */
+.workGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 960px) {
+  .workGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .workGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workCard {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: box-shadow 0.2s ease;
+}
+
+[data-theme='dark'] .workCard {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.workCard:hover {
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.12);
+}
+
+.workCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+[data-theme='dark'] .workCardTitle {
+  color: #f1f5f9;
+}
+
+.workCardDesc {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
+}
+
+[data-theme='dark'] .workCardDesc {
+  color: #94a3b8;
+}
+
+.workCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tagChips {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.chip {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 99px;
+  letter-spacing: 0.02em;
+}
+
+.chipDocs {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+[data-theme='dark'] .chipDocs {
+  background: #0369a1;
+  color: #e0f2fe;
+}
+
+.chipSoftware {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+[data-theme='dark'] .chipSoftware {
+  background: #166534;
+  color: #dcfce7;
+}
+
+.chipWriting {
+  background: #fdf4ff;
+  color: #7e22ce;
+}
+
+[data-theme='dark'] .chipWriting {
+  background: #7e22ce;
+  color: #f5d0fe;
+}
+
+/* ---- Writing Sample Teasers ---- */
+.teaserGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .teaserGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.teaserCard {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.75rem;
+  background: white;
+}
+
+[data-theme='dark'] .teaserCard {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.teaserLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0284c7;
+  margin-bottom: 0.5rem;
+}
+
+.teaserTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #0f172a;
+}
+
+[data-theme='dark'] .teaserTitle {
+  color: #f1f5f9;
+}
+
+.teaserExcerpt {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.65;
+  font-style: italic;
+  border-left: 3px solid #0284c7;
+  padding-left: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+[data-theme='dark'] .teaserExcerpt {
+  color: #94a3b8;
+}
+
+/* ---- Stack ---- */
+.stackGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .stackGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stackColumn h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0284c7;
+  margin-bottom: 1rem;
+}
+
+.stackPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stackPill {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+[data-theme='dark'] .stackPill {
+  background: #334155;
+  color: #cbd5e1;
+  border-color: #475569;
+}
+
+/* ---- Connect ---- */
+.connectRow {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
